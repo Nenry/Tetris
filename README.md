@@ -1,4 +1,4 @@
-## Background and OVerview
+## Background and Overview
 Tetris is a tile matching game with randomly generated tile sizes. Players are given one tile at a time and they must keep stacking the tiles. If the tiles stack as high as the column then it is game over. If a row is completely filled with tiles then that row will clear. Scores will be given for clearing rows and score multplier if multiple rows are cleared. 
 
 
