@@ -23,6 +23,10 @@ This app will be implemented with the following technologies:
 * HTML5 Canvas for DOM manipulating and rendering of the tiles
 
 
+![](https://github.com/Nenry/Tetris/blob/master/wireframe/Tetris.png?raw=true)
+
+
+
 
 ## Implementation Timeline
 ### Over the weekend:
