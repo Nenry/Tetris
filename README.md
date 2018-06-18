@@ -26,17 +26,24 @@ This app will be implemented with the following technologies:
 
 ## Implementation Timeline
 ### Over the weekend:
-[ ] Canvas tutorial
-[ ] Implement skeleton for class interactions
+
+- [ ] Canvas tutorial
+- [ ] Implement skeleton for class interactions
+
 
 #### Day 1:
-[ ] Pieces Class Creation
-[ ] Board Class Creation
+
+- [ ] Pieces Class Creation
+- [ ] Board Class Creation
 #### Day 2:
+
 [ ] Create Logic
 [ ] Keyboard shortcuts control for moving pieces
+
 #### Day 3:
+
 [ ] Instructions view
 [ ] Start, pause, reset game
 #### Day 4:
+
 [ ] Final touches 
