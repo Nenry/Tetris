@@ -23,11 +23,6 @@ This app will be implemented with the following technologies:
 * HTML5 Canvas for DOM manipulating and rendering of the tiles
 
 
-
-
-
-
-
 ## Implementation Timeline
 ### Over the weekend:
 
