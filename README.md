@@ -12,10 +12,10 @@ In Tetris, users will be able to:
 
 
 ## Wireframes
-This app will consist of a single screen that will utilize canvas, probabilities controls, instrument selectors, and nav links to the Github, my Linkedin.
+This app will consist of a single screen that will utilize canvas, and nav links to the Github, my Linkedin.
 
 Users will be able see their current score on the right and play tetris on the left. In addition, there will be Start, Pause, Restart, Reset, and Mute buttons as well.
-
+![](https://github.com/Nenry/Tetris/blob/master/wireframe/Tetris.png?raw=true)
 
 ## Architecture and Technologies
 This app will be implemented with the following technologies:
@@ -23,7 +23,7 @@ This app will be implemented with the following technologies:
 * HTML5 Canvas for DOM manipulating and rendering of the tiles
 
 
-![](https://github.com/Nenry/Tetris/blob/master/wireframe/Tetris.png?raw=true)
+
 
 
 
