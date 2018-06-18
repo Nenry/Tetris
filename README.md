@@ -4,11 +4,11 @@ Tetris is a tile matching game with randomly generated tile sizes. Players are g
 
 ## Functionality & MVP
 In Tetris, users will be able to:
-[ ] Rotate tile pieces of custom sizes with colors
-[ ] Drop the tile piece quickly to the bottom
-[ ] Start, pause, restart, and reset the simulation
-[ ] View instructions
-[ ] See the player's current score
+- [ ] Rotate tile pieces of custom sizes with colors
+- [ ] Drop the tile piece quickly to the bottom
+- [ ] Start, pause, restart, and reset the simulation
+- [ ] View instructions
+- [ ] See the player's current score
 
 
 ## Wireframes
@@ -37,13 +37,17 @@ This app will be implemented with the following technologies:
 - [ ] Board Class Creation
 #### Day 2:
 
-[ ] Create Logic
-[ ] Keyboard shortcuts control for moving pieces
+- [ ] Create Logic
+- [ ] Keyboard shortcuts control for moving pieces
 
 #### Day 3:
 
-[ ] Instructions view
-[ ] Start, pause, reset game
+- [ ] Instructions view
+- [ ] Start, pause, reset game
 #### Day 4:
 
-[ ] Final touches 
+- [ ] Final touches 
+
+#### Bonus:
+* Add background music
+* Add row clearing music
