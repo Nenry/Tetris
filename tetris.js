@@ -3,6 +3,14 @@ const context = canvas.getContext('2d');
 
 context.scale(20, 20);
 
+
+//if any of the coordinates have a 0 then that means it is not completely filled then let it keep looping via outer
+//outer allows to continue to the next row instead of continuing the x
+// y is the row, length of splice, splice will immediately remove that one then fill it with 0
+//adds empty row on top of the arena
+// 'const row' line will not be reached unless all of on row is reached
+// while the for loop is still going on, the rowCount continues, each consecutive row gets an compounded multiplier
+
 function arenaSweep() {
   let rowCount = 1;
   outer: for (let y = arena.length - 1; y > 0; --y) {
@@ -12,6 +20,7 @@ function arenaSweep() {
       }
     }
     const row = arena.splice(y, 1)[0].fill(0);
+
     arena.unshift(row);
     ++y;
 
@@ -41,7 +50,7 @@ function collide(arena, player) {
   return false;
 }
 
-//Creates mapping dimensions of where the the piece is
+//Creates mapping dimensions of where the piece is
 function createMatrix(w, h) {
   const matrix = [];
   while (h--) {
@@ -50,6 +59,8 @@ function createMatrix(w, h) {
   return matrix;
 }
 
+
+//creates pieces and fills in whatever it 1
 function createPiece(type) {
   if (type === 'T') {
     return [
@@ -123,7 +134,7 @@ function drawMatrix(matrix, offset) {
   });
 }
 
-//takes in the value from the tile piece which is 1 and displays on the arena map
+//takes in the value from the tile piece which is 1 and displays on the arena map, updates the 'board' relative to where the piece is
 function merge(arena, player) {
   player.matrix.forEach((row, y) => {
     row.forEach((value, x) => {
@@ -141,10 +152,10 @@ function playerDrop() {
   player.pos.y++;
   if (collide(arena, player)) {
     player.pos.y--;
-    merge(arena, player);
-    playerReset();
-    arenaSweep();
-    updateScore();
+    merge(arena, player); //updates board
+    playerReset(); //gets new piece
+    arenaSweep(); //checks to see if there are any rows that are filled up
+    updateScore(); //updates score
   }
   dropCounter = 0;
 }
@@ -195,6 +206,8 @@ function playerRotate(dir) {
   }
 }
 
+
+
 function rotate(matrix, dir) {
   for (let y = 0; y < matrix.length; ++y) {
     for (let x = 0; x < y; x++) {
@@ -226,15 +239,16 @@ function update(time = 0) {
   if (dropCounter > dropInterval) {
     playerDrop();
   }
-  draw();
+  draw(); //draws the arena and the piece
   requestAnimationFrame(update);
 }
+
 
 function updateScore() {
   document.getElementById('score').innerText = player.score;
 }
 
-
+//pieces color
 const colors = [
   null, 'red', 'blue', 'violet', 'green', 'purple', 'orange', 'pink'
 ];
@@ -272,13 +286,11 @@ document.addEventListener('keydown', event => {
   }
 });
 
-//matrix = current tile piece, and offset x = 5 , y = 5
-// drawMatrix(matrix, {
-//   x: 5,
-//   y: 5
-// });
 
+//playerReset generates a random piece, if the a collision appears on top of the area then everything gets resetted
 playerReset();
 updateScore();
-//initiate update, will cause internal loop of   requestAnimationFrame(update);
+
 update();
+// update draws the board and draws the pieces
+//initiate update, will cause internal loop of requestAnimationFrame(update);
