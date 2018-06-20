@@ -3,7 +3,8 @@
   const nextCanvas = document.getElementById('tetris-next-canvas');
   const nextContext = nextCanvas.getContext('2d');
 
-  context.scale(40, 40);
+  context.scale(30, 30);
+  nextContext.scale(30, 30);
 
 
   //if any of the coordinates have a 0 then that means it is not completely filled then let it keep looping via outer
@@ -115,7 +116,7 @@
 
   // draws the background and tile piece
   function draw() {
-    context.fillStyle = 'white';
+    context.fillStyle = 'black';
     context.fillRect(0, 0, canvas.width, canvas.height);
     //draws the background
     drawMatrix(arena, {
@@ -144,16 +145,30 @@
   }
 
   function drawNextMatrix(matrix, offset) {
-
+    nextContext.fillStyle = 'black';
+    nextContext.fillRect(0, 0, nextCanvas.width, nextCanvas.height);
     matrix.forEach((row, y) => {
       row.forEach((value, x) => {
         if (value !== 0) {
           nextContext.fillStyle = colors[value];
-          nextContext.fillRect(x + offset.x, y + offset.y, 1, 1);
+          nextContext.fillRect(x + 3, y + 5, 1, 1);
         }
       });
     });
   }
+  const pieces = 'ILJOTSZ';
+  var nextPieceMatrix = '';
+
+
+
+  function nextPiece() {
+    nextPieceMatrix = createPiece(pieces[pieces.length * Math.random() | 0]).slice(0);
+    return nextPieceMatrix;
+    // player.pos.y = 0;
+    // player.pos.x = (arena[0].length / 2 | 0) -
+    //   (player.matrix[0].length / 2 | 0);
+  }
+
 
   // function drawNextMatrix(matrix, offset) {
   //   nextContext.fillStyle = 'orange';
@@ -198,13 +213,28 @@
   //resets the players current position to the top again and randomizes a new piece
   // if the top arena and the player piece collide then reset to fill all with 0, meaning blank
   // why doesnt it blank out on the sides or the top?
+  // function playerReset() {
+  //   const pieces = 'ILJOTSZ';
+  //   player.matrix = createPiece(pieces[pieces.length * Math.random() | 0]);
+  //   player.pos.y = 0;
+  //   player.pos.x = (arena[0].length / 2 | 0) -
+  //     (player.matrix[0].length / 2 | 0);
+
+  //   if (collide(arena, player)) {
+  //     resetArena(arena, player);
+  //     // arena.forEach(row => row.fill(0));
+  //     // player.score = 0;
+  //     // updateScore;
+  //   }
+  // }
   function playerReset() {
-    const pieces = 'ILJOTSZ';
-    player.matrix = createPiece(pieces[pieces.length * Math.random() | 0]);
+
+    player.matrix = nextPieceMatrix.slice(0);
     player.pos.y = 0;
     player.pos.x = (arena[0].length / 2 | 0) -
       (player.matrix[0].length / 2 | 0);
-
+    nextPiece();
+    drawNextMatrix(nextPieceMatrix);
     if (collide(arena, player)) {
       resetArena(arena, player);
       // arena.forEach(row => row.fill(0));
@@ -314,9 +344,20 @@
   };
 
 
+  function fastDrop() {
+    let tempPlayer = player;
+    while (!collide(arena, tempPlayer)) {
+      tempPlayer.pos.y++;
+    }
+    tempPlayer.pos.y--
+      return tempPlayer.pos.y;
+
+  }
+
+
   //Allows user to move the tile piece
   document.addEventListener('keydown', event => {
-    console.log(event);
+
     if (event.keyCode === 37) {
       playerMove(-1);
 
@@ -341,6 +382,7 @@
 
 
   //playerReset generates a random piece, if the a collision appears on top of the area then everything gets resetted
+  nextPiece();
   playerReset();
   updateScore();
 
