@@ -349,15 +349,15 @@
     while (!collide(arena, tempPlayer)) {
       tempPlayer.pos.y++;
     }
-    tempPlayer.pos.y--
-      return tempPlayer.pos.y;
+    tempPlayer.pos.y--;
+    return tempPlayer.pos.y;
 
   }
 
 
   //Allows user to move the tile piece
   document.addEventListener('keydown', event => {
-
+    console.log(event);
     if (event.keyCode === 37) {
       playerMove(-1);
 
@@ -377,6 +377,8 @@
       resetArena(arena, player);
       updateScore();
       playerReset();
+    } else if (event.keyCode === 32) {
+      fastDrop();
     }
   });
 
