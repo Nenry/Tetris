@@ -116,6 +116,8 @@
 
   // draws the background and tile piece
   function draw() {
+    // if (!paused) {
+
     context.fillStyle = 'black';
     context.fillRect(0, 0, canvas.width, canvas.height);
     //draws the background
@@ -126,7 +128,20 @@
     //draw existing piece
     //draws the piece and players piece location
     drawMatrix(player.matrix, player.pos);
+    if (paused) {
+      context.fillStyle = 'red';
+      context.font = '1px serif';
+      context.fillText('Press "P" to start', 3, 4);
+    }
     // drawNextMatrix(player.matrix, player.pos);
+    // } else {
+    //   // console.log('this');
+    //   // context.font = '48px serif';
+    //   // context.fillStyle = 'black';
+    //   // context.fillText('Hello world', 50, 100);
+    //   context.fillStyle = 'black';
+    //   context.fillRect(0, 0, canvas.width, canvas.height);
+    // }
   }
 
   // context.fillRect(x, y, width, height);
@@ -151,7 +166,7 @@
       row.forEach((value, x) => {
         if (value !== 0) {
           nextContext.fillStyle = colors[value];
-          nextContext.fillRect(x + 3, y + 5, 1, 1);
+          nextContext.fillRect(x + 1, y + 0.75, 1, 1);
         }
       });
     });
@@ -296,7 +311,7 @@
 
   //constantly update the screen, requestanimationFrame will keep redrawing, built in function
   //requestAnimationFrame will automatically input a timestamp
-  var paused = false;
+  var paused = true;
 
 
   function update(time = 0) {
@@ -312,6 +327,9 @@
       var id = requestAnimationFrame(update);
     } else {
       cancelAnimationFrame(id);
+      // context.font = '48px serif';
+      // context.fillText("Press P to Start", 50, 100);
+      draw();
     }
 
   }
@@ -321,12 +339,12 @@
 
 
   function updateScore() {
-    document.getElementById('score').innerText = player.score;
+    document.getElementById('score').innerText = `Score: ${player.score}`;
   }
 
   //pieces color
   const colors = [
-    null, 'red', 'blue', 'violet', 'green', 'purple', 'orange', 'pink'
+    null, 'rgb(226, 36, 147)', 'rgb(102, 201, 226)', 'violet', 'rgb(72, 201, 72)', 'purple', 'rgb(247, 120, 17)', 'rgb(228, 23, 217)'
   ];
   //create arena/grid system as big as the canvas size, it is 12 and 20 because we scaled it
   // by 20, so it is actually 240 X 400
@@ -376,6 +394,7 @@
       update();
     } else if (event.keyCode === 82) {
       paused = false;
+      update();
       resetArena(arena, player);
       updateScore();
       playerReset();

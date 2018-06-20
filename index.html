@@ -13,15 +13,91 @@
     #tetris-canvas {
       border: 5px solid red;
     }
+
+    #score {
+      font-style: italic;
+    }
+
+    #tetris-wrapper {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center;
+      justify-self: center;
+      align-content: center;
+      width: 60%
+    }
+
+    #page-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    body {
+      background-color: gray;
+    }
+
+    #title {
+      font-size: 40px;
+      text-align: center;
+    }
+
+    #score {
+      font-size: 30px;
+    }
+
+    #right-side {
+      display: flex;
+      flex-direction: column;
+    }
+
+    #tetris-next-canvas {
+      width: 40%;
+      border: 5px solid red;
+      color: rgb(228, 23, 217);
+    }
+
+    #next-piece {
+      font-size: 25px;
+    }
   </style>
   <!-- <script src="bundle.js"></script> -->
 </head>
 
 <body>
-  <div id='score'></div>
-  <canvas id="tetris-canvas" width='360' height='600'></canvas>
-  <canvas id='tetris-next-canvas' width='240' height='360'></canvas>
-  <script type="application/javascript" src="tetris.js"></script>
+  <div id='page-container'>
+    <div id='tetris-wrapper'>
+
+      <canvas id="tetris-canvas" width='360' height='600'></canvas>
+      <div id='right-side'>
+        <div id='title'>Tetris</div>
+        <div id='score'></div>
+        <div id='next-piece'>Next Piece</div>
+        <canvas id='tetris-next-canvas' width='150' height='155'></canvas>
+        <script type="application/javascript" src="tetris.js"></script>
+        <div>
+          <div>How to play:</div>
+          <ul>
+            <li>Use the tile pieces to fill up a row. That row will clear and points will be rewarded. Multiple rows filled up
+              at one time will receieve bonus scores</li>
+          </ul>
+          <div>Instructions</div>
+          <ul>
+            <li>
+              <b>Press P to Start/Pause/Unpause the game.</b>
+            </li>
+            <li>Press Q/W to rotate, back or forward. </li>
+            <li>Press space to do fast drop</li>
+            <li>Press R to Restart the game </li>
+          </ul>
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+
 </body>
 
 </html>
