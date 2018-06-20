@@ -1,0 +1,30 @@
+{
+  "name": "tetris",
+  "version": "1.0.0",
+  "description": "Tetris is a tile matching game with randomly generated tile sizes. Players are given one tile at a time and they must keep stacking the tiles. If the tiles stack as high as the column then it is game over. If a row is completely filled with tiles then that row will clear. Scores will be given for clearing rows and score multplier if multiple rows are cleared.",
+  "main": "tetris.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "webpack --optimize-minimize",
+    "start": "webpack --watch --mode=development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nenry/Tetris.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nenry/Tetris/issues"
+  },
+  "homepage": "https://github.com/Nenry/Tetris#readme"
+}
