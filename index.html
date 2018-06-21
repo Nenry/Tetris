@@ -5,6 +5,7 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Tetris</title>
+  <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
 
   <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
@@ -12,6 +13,9 @@
   <style>
     #tetris-canvas {
       border: 5px solid red;
+      align-self: center;
+      align-items: center;
+      justify-self: center;
     }
 
     #score {
@@ -24,7 +28,10 @@
       align-items: center;
       justify-self: center;
       align-content: center;
-      width: 60%
+      width: 60%;
+      align-self: center;
+      font-family: 'Orbitron', sans-serif;
+
     }
 
     #page-container {
@@ -38,27 +45,43 @@
     }
 
     #title {
-      font-size: 40px;
+      font-size: 70px;
       text-align: center;
+      color: rgb(78, 177, 216);
+      text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     }
 
     #score {
       font-size: 30px;
+      /* align-self: flex-start; */
+      margin: 20px;
     }
 
     #right-side {
+      height: 100%;
       display: flex;
       flex-direction: column;
+      text-align: center;
+      /* align-content: center; */
+      justify-content: space-evenly;
+      align-items: center;
+
     }
 
     #tetris-next-canvas {
       width: 40%;
       border: 5px solid red;
       color: rgb(228, 23, 217);
+      margin-bottom: 25px;
+      margin-top: 10px;
     }
 
     #next-piece {
       font-size: 25px;
+    }
+
+    .sub-header {
+      font-size: 30px;
     }
   </style>
   <!-- <script src="bundle.js"></script> -->
@@ -76,12 +99,12 @@
         <canvas id='tetris-next-canvas' width='150' height='155'></canvas>
         <script type="application/javascript" src="tetris.js"></script>
         <div>
-          <div>How to play:</div>
+          <div class='sub-header'>How to play:</div>
           <ul>
             <li>Use the tile pieces to fill up a row. That row will clear and points will be rewarded. Multiple rows filled up
               at one time will receieve bonus scores</li>
           </ul>
-          <div>Instructions</div>
+          <div class='sub-header'>Instructions</div>
           <ul>
             <li>
               <b>Press P to Start/Pause/Unpause the game.</b>
