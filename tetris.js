@@ -120,6 +120,11 @@
 
     context.fillStyle = 'black';
     context.fillRect(0, 0, canvas.width, canvas.height);
+    context.beginPath();
+
+
+
+
     //draws the background
     drawMatrix(arena, {
       x: 0,
@@ -128,6 +133,19 @@
     //draw existing piece
     //draws the piece and players piece location
     drawMatrix(player.matrix, player.pos);
+
+    for (let y = 1; y < 28; y++) {
+      context.moveTo(0, y);
+      context.lineTo(30, y);
+      context.lineWidth = 0.01;
+      context.strokeStyle = 'rgb(209, 200, 200)';
+      context.stroke();
+      context.moveTo(y, 0);
+      context.lineTo(y, 30);
+      context.lineWidth = 0.01;
+      context.strokeStyle = 'rgb(209, 200, 200)';
+      context.stroke();
+    }
     if (paused) {
       context.fillStyle = 'rgb(78, 177, 216)';
       context.font = '1px serif';
@@ -381,7 +399,7 @@
 
   //Allows user to move the tile piece
   document.addEventListener('keydown', event => {
-    console.log(event);
+    // console.log(event);
     if (event.keyCode === 37 && !paused) {
       playerMove(-1);
 
@@ -389,7 +407,7 @@
       playerMove(1);
     } else if (event.keyCode === 40 && !paused) {
       playerDrop();
-    } else if (event.keyCode === 38) {
+    } else if (event.keyCode === 38 && !paused) {
       playerRotate(1);
     } else if (event.keyCode === 80) {
       paused = !paused;
