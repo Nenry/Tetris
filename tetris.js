@@ -129,9 +129,9 @@
     //draws the piece and players piece location
     drawMatrix(player.matrix, player.pos);
     if (paused) {
-      context.fillStyle = 'red';
+      context.fillStyle = 'rgb(78, 177, 216)';
       context.font = '1px serif';
-      context.fillText('Press "P" to start', 3, 4);
+      context.fillText('Press "P" to start', 3, 6);
     }
     // drawNextMatrix(player.matrix, player.pos);
     // } else {
@@ -370,6 +370,10 @@
     }
     tempPlayer.pos.y--;
     draw();
+    merge(arena, player); //updates board
+    playerReset(); //gets new piece
+    arenaSweep(); //checks to see if there are any rows that are filled up
+    updateScore();
     return tempPlayer.pos.y;
 
   }
@@ -378,16 +382,14 @@
   //Allows user to move the tile piece
   document.addEventListener('keydown', event => {
     console.log(event);
-    if (event.keyCode === 37) {
+    if (event.keyCode === 37 && !paused) {
       playerMove(-1);
 
-    } else if (event.keyCode === 39) {
+    } else if (event.keyCode === 39 && !paused) {
       playerMove(1);
-    } else if (event.keyCode === 40) {
+    } else if (event.keyCode === 40 && !paused) {
       playerDrop();
-    } else if (event.keyCode === 81) {
-      playerRotate(-1);
-    } else if (event.keyCode === 87) {
+    } else if (event.keyCode === 38) {
       playerRotate(1);
     } else if (event.keyCode === 80) {
       paused = !paused;
@@ -398,7 +400,7 @@
       resetArena(arena, player);
       updateScore();
       playerReset();
-    } else if (event.keyCode === 32) {
+    } else if (event.keyCode === 32 && !paused) {
       fastDrop();
 
 

@@ -12,7 +12,7 @@
   <!-- <script src="main.js"></script> -->
   <style>
     #tetris-canvas {
-      border: 5px solid red;
+      border: 5px solid rgb(78, 177, 216);
       align-self: center;
       align-items: center;
       justify-self: center;
@@ -70,7 +70,7 @@
 
     #tetris-next-canvas {
       width: 40%;
-      border: 5px solid red;
+      border: 5px solid rgb(78, 177, 216);
       color: rgb(228, 23, 217);
       margin-bottom: 25px;
       margin-top: 10px;
@@ -82,6 +82,31 @@
 
     .sub-header {
       font-size: 30px;
+    }
+
+    #page-container {
+      display: flex;
+      flex-direction: column;
+
+    }
+
+    .footer {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      align-items: center;
+      margin-top: 50px;
+    }
+
+    .icon {
+      height: 40px;
+      width: 40px;
+    }
+
+    .icons-wrapper {
+      width: 8%;
+      display: flex;
+      justify-content: space-between;
     }
   </style>
   <!-- <script src="bundle.js"></script> -->
@@ -99,7 +124,7 @@
         <canvas id='tetris-next-canvas' width='150' height='155'></canvas>
         <script type="application/javascript" src="tetris.js"></script>
         <div>
-          <div class='sub-header'>How to play:</div>
+          <div class='sub-header'>How to play</div>
           <ul>
             <li>Use the tile pieces to fill up a row. That row will clear and points will be rewarded. Multiple rows filled up
               at one time will receieve bonus scores</li>
@@ -109,11 +134,28 @@
             <li>
               <b>Press P to Start/Pause/Unpause the game.</b>
             </li>
-            <li>Press Q/W to rotate, back or forward. </li>
-            <li>Press space to do fast drop</li>
+            <li>Press Up &#8679; to rotate piece </li>
+            <li>Press &#8678; to move left or &#8680; to move right </li>
+            <li>Press SPACE to do fast drop</li>
             <li>Press R to Restart the game </li>
           </ul>
         </div>
+      </div>
+
+
+    </div>
+    <div class='footer'>
+      <div class='icons-wrapper'>
+        <a href="https://github.com/Nenry/Tetris">
+          <img class='icon' src="https://image.flaticon.com/icons/svg/38/38401.svg" alt="">
+          <!-- credit: https://www.flaticon.com/free-icon/github-logo-silhouette-in-a-square_38401 -->
+        </a>
+        <a href="https://www.linkedin.com/in/henryhtnguyen/">
+          <img class='icon' src="https://www.vpul.upenn.edu/careerservices/files/bw-linkedin.png" alt="">
+          <!-- credit: https://www.vpul.upenn.edu/careerservices/networking/linkedin.php -->
+        </a>
+
+
       </div>
 
 
