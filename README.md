@@ -32,8 +32,8 @@ This app will be implemented with the following technologies:
 
 #### Day 1:
 
-- [ ] Pieces Class Creation
-- [ ] Board Class Creation
+- [ ] Pieces Creation
+- [ ] Board Creation
 #### Day 2:
 
 - [ ] Create Logic
