@@ -459,7 +459,7 @@
 
 
   update();
-  update();
+
   // update draws the board and draws the pieces
   //initiate update, will cause internal loop of requestAnimationFrame(update);
 
