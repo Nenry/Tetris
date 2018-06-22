@@ -124,7 +124,7 @@
     context.beginPath();
 
 
-
+    context.font = '1.25px Orbitron, sans-serif';
 
 
 
@@ -353,7 +353,7 @@
 
   //constantly update the screen, requestanimationFrame will keep redrawing, built in function
   //requestAnimationFrame will automatically input a timestamp
-  var paused = true;
+  var paused = false;
 
 
   function update(time = 0) {
@@ -458,6 +458,7 @@
 
 
 
+  update();
   update();
   // update draws the board and draws the pieces
   //initiate update, will cause internal loop of requestAnimationFrame(update);
