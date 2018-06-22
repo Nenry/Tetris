@@ -150,18 +150,20 @@
 
     if (gameOver) {
       context.fillStyle = 'rgba(167, 167, 167, 0.5)';
-      context.fillRect(0, 0, nextCanvas.width, nextCanvas.height);
+      context.fillRect(0, 0, canvas.width, canvas.height);
       context.fillStyle = 'red';
       context.strokeStyle = 'black';
       context.font = '1.25px Orbitron, sans-serif';
-      context.fillText('GAME OVER', 2.1, 6);
+      context.fillText('GAME OVER', 1.6, 6);
       context.font = '0.8px Orbitron, sans-serif';
-      context.fillText('PRESS "R" TO RESTART', 0.5, 8.75);
+      context.fillText('PRESS "R" TO RESTART', 0.6, 8.75);
     } else if (paused) {
+      context.fillStyle = 'rgba(167, 167, 167, 0.6)';
+      context.fillRect(0, 0, canvas.width, canvas.height);
       context.fillStyle = 'rgb(67, 225, 236)';
       context.strokeStyle = 'black';
-      context.font = '1.25px Orbitron, sans-serif';
-      context.fillText('Press P to start', 2.2, 5.75);
+      context.font = '1px Orbitron, sans-serif';
+      context.fillText('Press P to start', 1.8, 5.9);
     }
   }
   // drawNextMatrix(player.matrix, player.pos);
@@ -426,7 +428,7 @@
       playerDrop();
     } else if (event.keyCode === 38 && !paused) {
       playerRotate(1);
-    } else if (event.keyCode === 80) {
+    } else if (event.keyCode === 80 && !gameOver) {
       paused = !paused;
       update();
     } else if (event.keyCode === 82) {
