@@ -151,16 +151,16 @@
       context.font = '1px serif';
       context.fillText('Press "P" to start', 3, 6);
     }
-    // drawNextMatrix(player.matrix, player.pos);
-    // } else {
-    //   // console.log('this');
-    //   // context.font = '48px serif';
-    //   // context.fillStyle = 'black';
-    //   // context.fillText('Hello world', 50, 100);
-    //   context.fillStyle = 'black';
-    //   context.fillRect(0, 0, canvas.width, canvas.height);
-    // }
   }
+  // drawNextMatrix(player.matrix, player.pos);
+  // } else {
+  //   // console.log('this');
+  //   // context.font = '48px serif';
+  //   // context.fillStyle = 'black';
+  //   // context.fillText('Hello world', 50, 100);
+  //   context.fillStyle = 'black';
+  //   context.fillRect(0, 0, canvas.width, canvas.height);
+  // }
 
   // context.fillRect(x, y, width, height);
 
