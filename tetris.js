@@ -317,9 +317,9 @@
     } else if (player.score > 300) {
       dropInterval = 650;
     } else if (player.score > 200) {
-      dropInterval = 750;
+      dropInterval = 700;
     } else if (player.score > 100) {
-      dropInterval = 800;
+      dropInterval = 750;
     }
   }
 
