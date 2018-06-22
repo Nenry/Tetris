@@ -156,7 +156,7 @@
       context.font = '1.25px Orbitron, sans-serif';
       context.fillText('GAME OVER', 1.6, 6);
       context.font = '0.8px Orbitron, sans-serif';
-      context.fillText('PRESS "R" TO RESTART', 0.6, 8.75);
+      context.fillText('PRESS R TO RESTART', 0.6, 8.75);
     } else if (paused) {
       context.fillStyle = 'rgba(167, 167, 167, 0.6)';
       context.fillRect(0, 0, canvas.width, canvas.height);
