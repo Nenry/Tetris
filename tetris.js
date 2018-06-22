@@ -6,7 +6,7 @@
   context.scale(30, 30);
   nextContext.scale(30, 30);
 
-
+  let gameOver = false;
   //if any of the coordinates have a 0 then that means it is not completely filled then let it keep looping via outer
   //outer allows to continue to the next row instead of continuing the x
   // y is the row, length of splice, splice will immediately remove that one then fill it with 0
@@ -47,8 +47,9 @@
         // console.log(arena[y + o.y]);
         // console.log(arena[y + o.y][x + o.x]);
         if (m[y][x] !== 0 && //if actual piece exists, value will be 1 or 0
-          (arena[y + o.y] && //if 
-            arena[y + o.y][x + o.x]) !== 0) {
+          (arena[y + o.y] && //if exists on the actual arena
+            arena[y + o.y][x + o.x]) !== 0) { //if theres another existing piece
+
           return true;
         }
       }
@@ -146,10 +147,21 @@
       context.strokeStyle = 'rgb(209, 200, 200)';
       context.stroke();
     }
-    if (paused) {
-      context.fillStyle = 'rgb(78, 177, 216)';
-      context.font = '1px serif';
-      context.fillText('Press "P" to start', 3, 6);
+
+    if (gameOver) {
+      context.fillStyle = 'rgba(167, 167, 167, 0.5)';
+      context.fillRect(0, 0, nextCanvas.width, nextCanvas.height);
+      context.fillStyle = 'red';
+      context.strokeStyle = 'black';
+      context.font = '1.25px Orbitron, sans-serif';
+      context.fillText('GAME OVER', 2.1, 6);
+      context.font = '0.8px Orbitron, sans-serif';
+      context.fillText('PRESS "R" TO RESTART', 0.5, 8.75);
+    } else if (paused) {
+      context.fillStyle = 'rgb(67, 225, 236)';
+      context.strokeStyle = 'black';
+      context.font = '1.25px Orbitron, sans-serif';
+      context.fillText('Press P to start', 2.2, 5.75);
     }
   }
   // drawNextMatrix(player.matrix, player.pos);
@@ -223,8 +235,10 @@
   //if player presses down, it make sure that the dropCounter goes back to zero so it doesnt double drop,
   //basically reset back to 0
   function playerDrop() {
+
     player.pos.y++;
     if (collide(arena, player)) {
+
       player.pos.y--;
       merge(arena, player); //updates board
       playerReset(); //gets new piece
@@ -268,9 +282,12 @@
       (player.matrix[0].length / 2 | 0);
     nextPiece();
     drawNextMatrix(nextPieceMatrix);
-    if (collide(arena, player)) {
-      resetArena(arena, player);
-      draw();
+    if (collide(arena, player)) { //if the playerReset and then collide immediately reset must mean it collided on top
+      gameOver = true;
+      paused = true;
+      update();
+      // resetArena(arena, player);
+      // draw();
       // arena.forEach(row => row.fill(0));
       // player.score = 0;
       // updateScore;
@@ -414,6 +431,7 @@
       update();
     } else if (event.keyCode === 82) {
       paused = false;
+      gameOver = false;
       update();
       resetArena(arena, player);
       updateScore();
