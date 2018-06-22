@@ -288,6 +288,7 @@
     player.pos.x = (arena[0].length / 2 | 0) -
       (player.matrix[0].length / 2 | 0);
     nextPiece();
+    increaseSpeed();
     drawNextMatrix(nextPieceMatrix);
     if (collide(arena, player)) { //if the playerReset and then collide immediately reset must mean it collided on top
       gameOver = true;
@@ -307,6 +308,33 @@
     updateScore;
   }
 
+  function increaseSpeed() {
+
+    if (player.score > 500) {
+      dropInterval = 450;
+    } else if (player.score > 400) {
+      dropInterval = 550;
+    } else if (player.score > 300) {
+      dropInterval = 650;
+    } else if (player.score > 200) {
+      dropInterval = 750;
+    } else if (player.score > 100) {
+      dropInterval = 800;
+    }
+  }
+
+  function hacks() {
+
+    arena[19].fill(2);
+    arena[18].fill(2);
+    arena[17].fill(2);
+    arena[16].fill(2);
+    // arena[15].fill(2);
+    // arena[14].fill(2);
+    // arena[13].fill(2);
+
+
+  }
   // function is used when player asks to rotate via keyboard, dir will be -1 or 1 depending which way of rotation
   // player.pos.x === current position of the piece via x direction
   //player.matrix is the dimensions of the piece, and dir is the -1 or 1
@@ -439,6 +467,7 @@
     } else if (event.keyCode === 82) {
       paused = false;
       gameOver = false;
+      dropInterval = 1000;
       update();
       resetArena(arena, player);
       updateScore();
