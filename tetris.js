@@ -126,6 +126,8 @@
 
 
 
+
+
     //draws the background
     drawMatrix(arena, {
       x: 0,
@@ -135,12 +137,14 @@
     //draws the piece and players piece location
     drawMatrix(player.matrix, player.pos);
 
+
     for (let y = 1; y < 28; y++) {
       context.moveTo(0, y);
       context.lineTo(30, y);
       context.lineWidth = 0.01;
       context.strokeStyle = 'rgb(209, 200, 200)';
       context.stroke();
+
       context.moveTo(y, 0);
       context.lineTo(y, 30);
       context.lineWidth = 0.01;
@@ -160,9 +164,10 @@
     } else if (paused) {
       context.fillStyle = 'rgba(167, 167, 167, 0.6)';
       context.fillRect(0, 0, canvas.width, canvas.height);
+
+      context.font = '1px Orbitron, sans-serif';
       context.fillStyle = 'rgb(67, 225, 236)';
       context.strokeStyle = 'black';
-      context.font = '1px Orbitron, sans-serif';
       context.fillText('Press P to start', 1.8, 5.9);
     }
   }
@@ -450,6 +455,8 @@
   nextPiece();
   playerReset();
   updateScore();
+
+
 
   update();
   // update draws the board and draws the pieces
