@@ -16,7 +16,7 @@
   
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Tetris</title>
+  <title>Techtris</title>
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
 
   <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
@@ -106,6 +106,7 @@
 
     .sub-header {
       font-size: 30px;
+      text-decoration: underline;
     }
 
     #page-container {
@@ -132,6 +133,11 @@
       display: flex;
       justify-content: space-between;
     }
+
+    .list-instructions{
+      /* list-style: none; */
+      text-align: start;
+    }
   </style>
 
   <!-- <script src="bundle.js"></script> -->
@@ -143,7 +149,7 @@
 
       <canvas id="tetris-canvas" width='360' height='600'></canvas>
       <div id='right-side'>
-        <div id='title'>Tetris</div>
+        <div id='title'>Techtris</div>
         <div id='score'></div>
         <div id='next-piece'>Next Piece</div>
         <canvas id='tetris-next-canvas' width='150' height='155'></canvas>
@@ -151,18 +157,24 @@
         <div>
           <div class='sub-header'>How to play</div>
           <ul>
-            <li>Use the tile pieces to fill up a row. That row will clear and points will be rewarded. Multiple rows filled up
-              at one time will receieve bonus scores</li>
+            <li class='list-instructions'>Use the tile pieces to fill up a row. </li>
+              <li class='list-instructions'>
+                Rows that fill up will clear and points will be rewarded.
+              </li>
+           
+             <li class='list-instructions'>
+               Score multipliers added for multiple rows cleared at once
+             </li>
           </ul>
           <div class='sub-header'>Instructions</div>
           <ul>
-            <li>
+            <li class='list-instructions'>
               <b>Press P to Start/Pause/Unpause the game.</b>
             </li>
-            <li>Press Up &#8679; to rotate piece </li>
-            <li>Press &#8678; to move left or &#8680; to move right </li>
-            <li>Press SPACE to do fast drop</li>
-            <li>Press R to Restart the game </li>
+            <li class='list-instructions'>Press Up &#8679; to rotate piece </li>
+            <li class='list-instructions'>Press &#8678; to move left or &#8680; to move right </li>
+            <li class='list-instructions'>Press SPACE to do fast drop</li>
+            <li class='list-instructions'>Press R to Restart the game </li>
           </ul>
         </div>
       </div>
@@ -188,7 +200,7 @@
 
   </div>
 
-  <script type="application/javascript" src="tetris.js"></script>
+  <script type="application/javascript" src="techtris.js"></script>
 </body>
 
 </html>
