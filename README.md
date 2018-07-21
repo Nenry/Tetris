@@ -10,7 +10,7 @@ Tetris is a tile matching game with randomly generated tile sizes. Players are g
 * HTML5 Canvas was used DOM manipulating and visual graphics. It works cohesively and is included within JavaScript.
 
 
-![](https://github.com/Nenry/Tetris/blob/master/screenshots/gameplay.png?raw=true "")
+![](https://raw.githubusercontent.com/Nenry/Tetris/master/wireframe/Techtris.png)
 
 
 
